@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// Simulated user data (replace with a database in a real application)
+
 const users = [
     { username: 'user1', password: 'password1' },
     { username: 'user2', password: 'password2' },
@@ -18,11 +18,11 @@ router.get('/', function(req, res) {
 router.post('/login', function(req, res) {
     const { username, password } = req.body;
 
-    // Check if the provided username and password match predefined values
+    // Checking for password and username
     const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
-        req.session.username = username;
+        req.session.username = username;//using session for storing username
         res.redirect('/home');
     } else {
         res.render('login', { title: 'Login', errorMessage: 'Incorrect username or password' });

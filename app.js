@@ -16,7 +16,7 @@ app.set("view engine", "hbs");
 
 app.use(
 	session({
-		secret: "hahaha", // Change this to a secure secret
+		secret: "hahaha", 
 		resave: false,
 		saveUninitialized: true,
 	})
